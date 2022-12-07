@@ -1,0 +1,125 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+@*<body img src="emp1.jpg" alt="Dolls" height="50" width="50">*@
+
+<style>
+    .accordion {
+        background-color: #eee;
+        color: black;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+    }
+
+        .active, .accordion:hover {
+            background-color: orangered;
+        }
+
+        .accordion:after {
+            content: '\002B';
+            color: #777;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+    .active:after {
+        content: "\2212";
+    }
+
+    .panel {
+        padding: 0 18px;
+        background-color: lightpink;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+</style>
+
+
+<br />
+<br />
+<h3> Modules Of Employee Management</h3>
+<br />
+
+<button class="accordion">Department</button>
+<div class="panel">
+    <p>This class will contain methods to add a new department and manage existing departments</p>
+</div>
+<br />
+<br />
+
+<button class="accordion">Employee</button>
+<div class="panel">
+    <p>This class will contain methods to add a new employee and manage the existing employees</p>
+</div>
+<br />
+<br />
+
+<button class="accordion">User Master</button>
+<div class="panel">
+    <p>
+        This class will contain methods for managing users details
+    </p>
+</div>
+<br />
+<br />
+
+
+<button class="accordion">Grade Master</button>
+<div class="panel">
+    <p>
+        This class will contain methods for managing Grade of the employees
+    </p>
+</div>
+<br />
+<br />
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+</script>
+
+
+
+
+
+@*<h3>
+        <strong>
+            MODULES
+        </strong>
+    </h3>
+
+
+    <ul>
+        <li> Department Class :- This class will contain methods to add a new department and manage existing departments</li>
+        <li> Employee Class :- This class will contain methods to add a new employee and manage the existing employees</li>
+        <li> Use Master Class :- This class will contain methods for managing users details</li>
+        <li> Grade Master Class :- This class will contain methods for managing Grade of the employees</li>
+    </ul>*@
+
+@*<p>Use this area to provide additional information.</p>*@
+
+
+
+
+

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Emp_Mvc_client_Sp.Models.Grade_Master>
+@{
+    ViewBag.Title = "GradeMaster";
+}
+
+<h2>GradeMaster Details</h2>
+
+<br />
+<p>
+
+
+    <a href="@Url.Content("~/Home/Create")" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-plus">Add New Grade Master</span></a>
+    @*@Html.ActionLink("Create New", "Create")*@
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Grade_Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Min_Salary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Max_salary)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade_Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Min_Salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Max_salary)
+            </td>
+
+
+            <td>
+                <a href="@Url.Content("~/Home/Edit?id=")@item.Grade_Code" class="btn btn-danger" btn-xs"><span class="glyphicon glyphicon-pencil"> Edit</span></a> <br />
+                <br />
+                @*<a href="@Url.Content("~/Home/Details?id=")@item.Grade_Code" class="btn btn-primary" btn-xs"><span class="glyphicon glyphicon-search"> Details</span></a> <br />*@
+                @*<br />*@
+                <a href="@Url.Content("~/Home/Delete?id=")@item.Grade_Code" class="btn btn-danger" btn-xs"><span class=" glyphicon glyphicon-trash"> Delete</span></a> <br />
+                <br />
+            </td>
+        </tr>
+
+        @*<td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>*@
+        @*</tr>*@
+    }
+
+</table>
+<button onclick="window.print()">Print this page</button>

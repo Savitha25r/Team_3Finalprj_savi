@@ -1,0 +1,109 @@
+﻿@model IEnumerable<EMS_Project.Models.Employee>
+
+@{
+    ViewBag.Title = "Display";
+}
+
+<h2>Display</h2>
+
+<a href="@Url.Content("~/Home/Create")" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus">Add New</span></a>
+    
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_First_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Last_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Date_of_Birth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Date_of_Joining)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Grade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Designation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Basic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Marital_Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Home_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Contact_Num)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department.Dept_Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_First_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Last_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Date_of_Birth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Date_of_Joining)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Grade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Designation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Basic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Marital_Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Home_Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Contact_Num)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department.Dept_Name)
+            </td>
+            <td>
+                <a href="@Url.Content("~/Home/Edit?id=")@item.Emp_ID" class="btn btn-primary" btn-xs"><span class="glyphicon glyphicon-pencil"> Edit</span></a> <br />
+                <br />
+                <a href="@Url.Content("~/Home/Details?id=")@item.Emp_ID" class="btn btn-primary" btn-xs"><span class="glyphicon glyphicon-search"> Details</span></a> <br />
+                <br />
+                <a href="@Url.Content("~/Home/Delete?id=")@item.Emp_ID" class="btn btn-primary" btn-xs"><span class=" glyphicon glyphicon-trash"> Delete</span></a> <br />
+                <br />
+
+                @Html.ActionLink("Edit", "Edit", new { id = item.Emp_ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Emp_ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Emp_ID })
+            </td>
+        </tr>
+    }
+
+</table>

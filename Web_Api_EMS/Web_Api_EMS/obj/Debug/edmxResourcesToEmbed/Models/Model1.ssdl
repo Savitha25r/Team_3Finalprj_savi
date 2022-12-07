@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EMS_ProjectDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Dept_ID" />
+    </Key>
+    <Property Name="Dept_ID" Type="int" Nullable="false" />
+    <Property Name="Dept_Name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Emp_ID" />
+    </Key>
+    <Property Name="Emp_ID" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="Emp_First_Name" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Emp_Last_Name" Type="varchar" MaxLength="25" />
+    <Property Name="Emp_Date_of_Birth" Type="date" Nullable="false" />
+    <Property Name="Emp_Date_of_Joining" Type="date" Nullable="false" />
+    <Property Name="Dept_ID" Type="int" />
+    <Property Name="Emp_Grade" Type="varchar" MaxLength="2" />
+    <Property Name="Emp_Designation" Type="varchar" MaxLength="50" />
+    <Property Name="Emp_Basic" Type="int" Nullable="false" />
+    <Property Name="Emp_Gender" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="Emp_Marital_Status" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="Emp_Home_Address" Type="varchar" MaxLength="100" />
+    <Property Name="Emp_Contact_Num" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Grade_Master">
+    <Key>
+      <PropertyRef Name="Grade_Code" />
+    </Key>
+    <Property Name="Grade_Code" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Min_Salary" Type="int" Nullable="false" />
+    <Property Name="Max_salary" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User_Master">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="UserPassword" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserType" Type="varchar" MaxLength="2" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Employee__Dept_I__0F624AF8">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Dept_ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Dept_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__Emp_Gr__10566F31">
+    <End Role="Grade_Master" Type="Self.Grade_Master" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grade_Master">
+        <PropertyRef Name="Grade_Code" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Emp_Grade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EMS_ProjectDBModelStoreContainer">
+    <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grade_Master" EntityType="Self.Grade_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_Master" EntityType="Self.User_Master" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Employee__Dept_I__0F624AF8" Association="Self.FK__Employee__Dept_I__0F624AF8">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__Emp_Gr__10566F31" Association="Self.FK__Employee__Emp_Gr__10566F31">
+      <End Role="Grade_Master" EntitySet="Grade_Master" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

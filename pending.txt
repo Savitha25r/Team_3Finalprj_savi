@@ -1,0 +1,26 @@
+https://localhost:44393/MVC_UserMaster/Display
+
+
+https://localhost:44393/MVC_UserMaster/Create
+
+
+
+
+
+
+Emoployee
+validations
+search
+sorting
+soft delete
+
+
+
+grade master
+edit and delete
+
+validations
+
+ppt
+
+header footer 

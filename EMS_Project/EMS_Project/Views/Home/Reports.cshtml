@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewBag.Title = "Reports";
+}
+
+
+
+
+<h3>@ViewBag.Message</h3>
+<h2>Reports of employee management</h2>
+
+
+<head>
+    <style>
+        .dropbtn {
+            background-color: #777;
+            ;
+            color: white;
+            padding: 14px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+            .dropbtn:hover {
+                background-color: rgb(230, 99, 11);
+               
+            }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color:white;
+            min-width: 140px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+        .dropdown a:hover {
+            background-color: #ddd;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="dropdown">
+        <button onclick="EmployeeList()" class="dropbtn">Employee</button>
+        <div id="myDropdown1" class="dropdown-content">
+            <a href="#EmployeeList" onclick="Employee()">Employee</a>
+            <button onclick="window.print()">Print this page</button>
+
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="DepartmentList()" class="dropbtn">Department</button>
+        <div id="myDropdown2" class="dropdown-content">
+            <a href="#DepartmentList" onclick="Department()">Department</a>
+            <button onclick="window.print()">Print this page</button>
+
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button onclick="GradeMasterList()" class="dropbtn">Grademaster</button>
+        <div id="myDropdown3" class="dropdown-content">
+            <a href="#GrademasterList" onclick="Grademaster()">Grademaster</a>
+            <button onclick="window.print()">Print this page</button>
+        </div>
+    </div>
+
+    <script>
+        /* methods to hide and show the dropdown content */
+        function EmployeeList() {
+            document.getElementById("myDropdown1").classList.toggle("show");
+        }
+
+        function DepartmentList() {
+            document.getElementById("myDropdown2").classList.toggle("show");
+        }
+
+
+        function GradeMasterList() {
+            document.getElementById("myDropdown3").classList.toggle("show");
+        }
+
+        /* methods to redirect to tutorial page that user will select from dropdown list */
+        function Employee() {
+            window.location.replace("https://www.javatpoint.com/java-tutorial");
+
+        }
+        function Department() {
+            window.location.replace("https://www.javatpoint.com/python-tutorial");
+
+        }
+        function Grademaster() {
+               <li>@Html.ActionLink("GradeMaster", "GradeMaster", "Home")</li>
+            /*window.location.replace("https://www.javatpoint.com/cpp-tutorial");*/
+
+        }
+
+
+
+
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>

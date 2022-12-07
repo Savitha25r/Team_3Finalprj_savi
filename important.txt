@@ -1,0 +1,294 @@
+<div>
+        @Html.ActionLink("Back to employee list", "index")
+        <input type="submit"onclick="location.href='@Url.Action("Index","Employees")'"value="Go to home page" class="btn btn-danger" />
+        @*@Html.ActionLink("create", "create", new { id = Model.Empid })|*@
+       
+    </div>
+
+
+
+<style>
+    .button-link {
+        padding: 10px 15px;
+        background: #4479BA;
+        color: #FFF;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        border: solid 1px #20538D;
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+        -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+        -webkit-transition-duration: 0.2s;
+        -moz-transition-duration: 0.2s;
+        transition-duration: 0.2s;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+        .button-link:hover {
+            background: #356094;
+            border: solid 1px #2A4E77;
+            text-decoration: none;
+        }
+
+        .button-link:active {
+            -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+            -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+            box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+            background: #2E5481;
+            border: solid 1px #203E5F;
+        }
+</style>
+<body style="background-color:lightsalmon">
+    <h2>Create Employee</h2>
+
+
+
+
+ <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="button" value="backtolist" onclick="backtolist","Index" class="btn btn-primary" />
+        </div>
+    </div>
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+display for grade mster
+
+
+
+@model IEnumerable<Emp_Mvc_Client.Models.Grade_Master>
+
+@{
+    ViewBag.Title = "Display";
+}
+
+<h2>Display</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Grade_Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Min_Salary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Max_salary)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Grade_Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Min_Salary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Max_salary)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
+
+
+
+
+
+
+
+
+
+//create grade master
+
+
+@model Emp_Mvc_Client.Models.Grade_Master
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Grade_Master</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Grade_Code, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Grade_Code, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Grade_Code, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Min_Salary, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Min_Salary, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Min_Salary, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Max_salary, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Max_salary, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Max_salary, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ //Get all Users
+        public IEnumerable<User_Master> Get()
+        {
+            return db.User_Master.ToList();
+        }
+
+        //Post or add new User
+        public IHttpActionResult PostNewUser([FromBody] User_Master um)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Validations Failed");
+            db.User_Master.Add(new User_Master()
+            {
+                UserID = um.UserID,
+                UserName = um.UserName,
+                UserPassword = um.UserPassword,
+                UserType = um.UserType,
+            });
+            db.SaveChanges();
+            return Ok(um);
+        }
+
+
+        //Get the Particular User Details by Id
+        public User_Master Get(string id)
+        {
+            User_Master um = db.User_Master.Find(id);
+            return (um);
+        }
+
+
+        //Update the User Details by calling Put Method
+        public string Put( User_Master user)
+        {
+            var _user = db.User_Master.Find(user.UserID);
+
+            if (_user.UserID == null)
+            {
+                return "No User exist with the Id to update";
+            }
+
+            else
+            {
+                _user.UserID = user.UserID;
+                _user.UserName = user.UserName;
+                _user.UserPassword = user.UserPassword;
+                _user.UserType = user.UserType;
+
+                db.Entry(_user).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+
+                return ("User Details updated successfully");
+            }
+        }
+
+        //Delete the User by User_Id
+        public string Delete(string id)
+        {
+            User_Master user = db.User_Master.Find(id);
+
+            if (user == null)
+            {
+                return "No User exist with the Id to delete";
+            }
+
+            else
+            {
+                db.User_Master.Remove(user);
+                db.SaveChanges();
+                return "User Deleted";
+            }
+        }
+

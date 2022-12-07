@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Emp_Mvc_client_Sp.Models.Department>
+
+@{
+    ViewBag.Title = "Department";
+}
+
+<h2>Department Details</h2>
+
+<p>
+    <div>
+        <a href="@Url.Content("~/Department/Create")" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-plus">Add New Department</span></a>
+        @*@Html.ActionLink("Create New", "Create")*@
+    </div>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Dept_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dept_Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dept_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dept_Name)
+            </td>
+
+            <td>
+                <a href="@Url.Content("~/Department/Edit?id=")@item.Dept_ID" class="btn btn-danger" btn-xs"><span class="glyphicon glyphicon-pencil"> Edit</span></a> <br />
+                <br />
+                @*<a href="@Url.Content("~/Home/Details?id=")@item.Grade_Code" class="btn btn-primary" btn-xs"><span class="glyphicon glyphicon-search"> Details</span></a> <br />*@
+                @*<br />*@
+                <a href="@Url.Content("~/Department/Delete?id=")@item.Dept_ID" class="btn btn-danger" btn-xs"><span class=" glyphicon glyphicon-trash"> Delete</span></a> <br />
+                <br />
+            </td>
+        </tr>
+        <!--<td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Dept_ID }) |-->
+        @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+        <!--@Html.ActionLink("Delete", "Delete", new { id = item.Dept_ID })
+            </td>
+        </tr>-->
+    }
+
+</table>
+<button onclick="window.print()">Print this page</button>
+

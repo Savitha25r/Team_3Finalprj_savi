@@ -1,0 +1,99 @@
+﻿@model Emp_Mvc_client_Sp.Models.Grade_Master
+
+
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+
+<h2>Edit</h2>
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Grade_Master</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Grade_Code, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Grade_Code, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Grade_Code, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })*@
+
+
+
+                @Html.DropDownListFor(model => model.Description, new List<SelectListItem> { new SelectListItem { Text = "Select Designation", Value = "select" },
+               new SelectListItem { Text = "Associate", Value = "Associate" },
+               new SelectListItem { Text = "Senior", Value = "Senior" },
+               new SelectListItem { Text = "Exucutive", Value = "Exucutive" },
+               new SelectListItem { Text = "Manager", Value = "Manager" },
+               new SelectListItem { Text = "Deputy Manager", Value = "Deputy Manager" },
+               new SelectListItem { Text = "Vice President", Value = "Vice President" },
+               new SelectListItem { Text = "CEO", Value = "CEO" } })
+
+
+
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Min_Salary, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Min_Salary, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Min_Salary, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Max_salary, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Max_salary, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Max_salary, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+<div>
+    <input type="submit" onclick="location.href='@Url.Action("GradeMaster_SP","Home")'" value="Back to Grade_Master" class="btn btn-danger" />
+    @*@Html.ActionLink("Back to List", "GradeMaster_SP")*@
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

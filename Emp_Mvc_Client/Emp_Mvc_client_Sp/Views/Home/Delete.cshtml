@@ -1,0 +1,83 @@
+﻿@model Emp_Mvc_client_Sp.Models.Grade_Master
+
+
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+
+<h2>Delete</h2>
+
+
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Grade_Master</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Grade_code)
+        </dt>
+
+
+
+        <dd>
+            @Html.DisplayFor(model => model.Grade_Code)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Min_Salary)
+        </dt>
+
+
+
+        <dd>
+            @Html.DisplayFor(model => model.Min_Salary)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Max_salary)
+        </dt>
+
+
+
+        <dd>
+            @Html.DisplayFor(model => model.Max_salary)
+        </dd>
+
+
+
+    </dl>
+
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "GradeDisplay")
+        </div>
+    }
+</div>

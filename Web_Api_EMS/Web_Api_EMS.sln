@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32901.82
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web_Api_EMS", "Web_Api_EMS\Web_Api_EMS.csproj", "{584AADFD-B56C-4D25-81C1-3D686E0D5F32}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{584AADFD-B56C-4D25-81C1-3D686E0D5F32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{584AADFD-B56C-4D25-81C1-3D686E0D5F32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{584AADFD-B56C-4D25-81C1-3D686E0D5F32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{584AADFD-B56C-4D25-81C1-3D686E0D5F32}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CBE22EBD-38CC-4285-9364-635AD75BA638}
+	EndGlobalSection
+EndGlobal

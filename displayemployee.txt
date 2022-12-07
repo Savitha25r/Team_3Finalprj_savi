@@ -1,0 +1,155 @@
+@model IEnumerable<Emp_Mvc_client_Sp.Models.Employee>
+
+@{
+    ViewBag.Title = "Employee";
+}
+
+<h2>Employee Details</h2>
+
+<div>
+    <div>
+        @Html.ActionLink("Create New", "Create")
+    </div>
+    <div style="text-align:right">
+        <input type="text" id="txt_search" placeholder="Search Here" />
+        <input type="button" id="btnSearch" value="Search" />
+
+    </div>
+</div>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_First_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Last_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Date_Of_Birth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Date_Of_Joining)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Grade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Designation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Basic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Marital_Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Home_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Contact_Num)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dept_ID)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_First_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Last_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Date_Of_Birth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Date_Of_Joining)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Grade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Designation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Basic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Marital_Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Home_Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Contact_Num)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dept_ID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Emp_ID }) |
+                @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                @Html.ActionLink("Delete", "Delete", new { id = item.Emp_ID })
+            </td>
+        </tr>
+
+
+
+
+
+
+
+    }
+
+</table>
+<br />
+
+
+@*<button onclick="window.print()">Print this page</button>*@
+
+
+@section scripts {
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+
+
+            $("#btnSearch").click(function () {
+                alert('search button clicked')
+                alert($("#txt_search").val())
+                if ($("#txt_search").val() == '') {
+                    alert('Please enter search text')
+                }
+                else {
+                    window.location = '/Employee/Employee/' + $("#txt_search").val()
+                }
+            });
+        });
+
+
+
+
+    </script>
+
+
+    }
+
